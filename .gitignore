@@ -1,0 +1,19 @@
+# mac
+.DS_Store
+
+# Unity generated (nested project folder is MP0/)
+MP0/[Ll]ibrary/
+MP0/[Tt]emp/
+MP0/[Ll]ogs/
+MP0/[Uu]ser[Ss]ettings/
+MP0/.utmp/
+MP0/MP0_BurstDebugInformation_DoNotShip/
+
+# IDE
+MP0/.vscode/
+MP0/.vs/
+
+# builds / artifacts
+MP0/*.apk
+MP0/*.app
+MP0/mono_crash*.json
