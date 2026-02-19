@@ -8,6 +8,7 @@ public class GateSocket : MonoBehaviour
     public int gateId = 1;
     public int requiredKeyId = 1;
     public EscapeRoomManager manager;
+    public GameObject hiddenObject;
 
     private UnityEngine.XR.Interaction.Toolkit.Interactors.XRSocketInteractor socket;
     private bool solved = false;
@@ -46,12 +47,15 @@ public class GateSocket : MonoBehaviour
         if (grab != null) grab.enabled = false;
 
         // Notify manager
+        // Just leave it locked in the socket visually
+        // Already disabled grab above, so it stays put
         if (manager != null)
             manager.MarkGateSolved(gateId);
-
-        // Disappear after 0.3 seconds
+        if (hiddenObject != null)
+            hiddenObject.SetActive(true);
+        // Disappear after 0.5 seconds
         GameObject keyObj = args.interactableObject.transform.gameObject;
-        StartCoroutine(DisappearAfter(keyObj, 0.3f));
+        StartCoroutine(DisappearAfter(keyObj, 0.5f));
     }
 
     private IEnumerator DisappearAfter(GameObject obj, float seconds)
